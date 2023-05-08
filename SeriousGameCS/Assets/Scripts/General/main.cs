@@ -41,8 +41,6 @@ public class main : MonoBehaviour
                 break;
         }
 
-        //Pause si le joueur appuie sur Echap
-        checkForEscKey();
     }
     //Ajouter des points au joueur
 
@@ -81,21 +79,5 @@ public class main : MonoBehaviour
     public static void PauseGame()
     {
         Time.timeScale = 0f;
-    }
-
-    private void checkForEscKey()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (PauseMenu.GameIsPaused)
-            {
-                PauseMenu.GameIsPaused = false;
-            }
-            else
-            {
-                PauseMenu.GameIsPaused = true;
-                Debug.Log(PauseMenu.GameIsPaused);
-            }
-        }
     }
 }

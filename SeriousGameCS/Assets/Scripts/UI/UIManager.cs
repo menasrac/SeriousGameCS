@@ -13,11 +13,15 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (panelTips.activeInHierarchy)
+        {
+            main.PauseGame();
+        }
     }
     public GameObject panelWelcomePage;
     public GameObject panelInGame;
     public GameObject panelGameOver;
+    public GameObject panelTips;
 
     public void LaunchLevel2()
     {
@@ -47,4 +51,14 @@ public class UIManager : MonoBehaviour
         panelInGame.SetActive(false);
     }
 
+    public void openTipMenu()
+    { 
+        panelTips.SetActive(true);
+        main.PauseGame();
+    }
+    public void closeTipMenu()
+    {
+        panelTips.SetActive(false);
+        main.ResumeGame();
+    }
 }

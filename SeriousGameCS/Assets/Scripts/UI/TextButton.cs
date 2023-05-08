@@ -29,4 +29,5 @@ public class TextButton : MonoBehaviour
         //Restaure la taille du texte par défaut lorsque la souris quitte le bouton
         buttonText.transform.localScale = new Vector3(defaultSize, defaultSize, defaultSize);
     }
+    
 }

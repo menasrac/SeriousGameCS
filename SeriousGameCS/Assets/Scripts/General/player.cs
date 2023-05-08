@@ -10,12 +10,13 @@ public class player : MonoBehaviour
 {
     public static float score = 50f;
     public TextMeshProUGUI scoreText;
-    public int level;
+    public int level = 1;
     private static int remainingLives = 3;
     public GameObject heartPanel;
     private static Transform heart1, heart2, heart3;
     public GameObject mainGO;
     public static main main;
+    public  GameObject tipContent;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,10 @@ public class player : MonoBehaviour
     {
         if (getSupposedLevel(score)> level)
         {
+            Debug.Log(getSupposedLevel(score) + "et" + level);
             level = getSupposedLevel(score);
+            Tip.newLevelTip(level, tipContent);
+
         }
     }
     private int getSupposedLevel(float score)

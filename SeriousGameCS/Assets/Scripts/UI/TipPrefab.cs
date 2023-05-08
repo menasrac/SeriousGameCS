@@ -9,13 +9,15 @@ public class TipPrefab : MonoBehaviour
     public TextMeshProUGUI titleText;
     public Image image;
     public TextMeshProUGUI descriptionText;
+    public GameObject closeButton;
 
     public void Initialize(string title, Sprite sprite, string description)
     {
         titleText.text = title;
         image.sprite = sprite;
-        //descriptionText.text = description;
+        descriptionText.text = description;
     }
+
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
@@ -32,5 +34,10 @@ public class TipPrefab : MonoBehaviour
         {
             main.ResumeGame();
         }
+    }
+
+    public void removeCloseButton()
+    {
+        Destroy(closeButton);
     }
 }
