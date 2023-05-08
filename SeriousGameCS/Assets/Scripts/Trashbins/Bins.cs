@@ -69,8 +69,23 @@ public class Bins : MonoBehaviour
             else
             {
                 player.AddPoints(-2*item.score);
+                player.onError();
             }
             Destroy(selectedItem.gameObject);
+        }
+    }
+
+    //Lorsque l'item est n'est mis dans aucune poubelle -> donc dans la poubelle grise
+    public static void letInGarbage(Item item)
+    {
+        if (item.type != Item.ItemType.Organic)
+        {
+            player.onError();
+            player.AddPoints(-2*item.score);
+        }
+        else
+        {
+            player.AddPoints(item.score);
         }
     }
 }

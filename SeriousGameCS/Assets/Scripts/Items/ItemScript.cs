@@ -32,7 +32,7 @@ public class Item
             Texture2D texture = Resources.Load<Texture2D>("Sprites/" + name);
             this.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Debug.Log("Erreur de chargement de texture pour l'item " + this.name + ". L'item ne sera pas chargé.");
             this.sprite = null;

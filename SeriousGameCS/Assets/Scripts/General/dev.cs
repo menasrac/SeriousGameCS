@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +9,14 @@ public class dev : MonoBehaviour
     public ConveyorBelt conveyorBelt;
     public RawImage selectedItemImage;
     public GameObject yellowBinGO;
+    private TextMeshProUGUI levelText;
+    private player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        player = GameObject.FindObjectOfType<player>();
         ////Charger l'image depuis les ressources
         //Texture2D texture = Resources.Load<Texture2D>("Bins/yellowBin");
 
@@ -41,6 +46,7 @@ public class dev : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        levelText.text = "level=" + player.level;
         Transform selectedItem = conveyorBelt.getSelectedItem();
         if (Input.GetKeyDown(KeyCode.D))
         {

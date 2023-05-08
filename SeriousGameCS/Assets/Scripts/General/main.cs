@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class main : MonoBehaviour
 {
-    public GameObject itemPrefab; // Le prefab de l'objet "Item"
     public ConveyorBelt conveyorBelt; // Une référence vers le script du tapis roulant
 
 
@@ -41,6 +40,9 @@ public class main : MonoBehaviour
                 UpdateInGame();
                 break;
         }
+
+        //Pause si le joueur appuie sur Echap
+        checkForEscKey();
     }
     //Ajouter des points au joueur
 
@@ -67,5 +69,33 @@ public class main : MonoBehaviour
         // Eteindre la musique du jeu
 
         // Se déconnecter du serveur
+    }
+
+    //Pour reprendre le cours du temps
+    public static void ResumeGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    //Pour arrêter le cours du temps
+    public static void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void checkForEscKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseMenu.GameIsPaused)
+            {
+                PauseMenu.GameIsPaused = false;
+            }
+            else
+            {
+                PauseMenu.GameIsPaused = true;
+                Debug.Log(PauseMenu.GameIsPaused);
+            }
+        }
     }
 }
