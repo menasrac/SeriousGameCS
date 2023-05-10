@@ -13,12 +13,14 @@ public class main : MonoBehaviour
     public enum STATE { WELCOME_PAGE, IN_GAME, GAME_OVER }
 
     public STATE state;
+    private static main mainInstance;
 
     //public UIManager uiManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainInstance = this;
         //state = STATE.WELCOME_PAGE;
         //uiManager.GoToStateWelcome();
 
@@ -59,9 +61,9 @@ public class main : MonoBehaviour
         state = STATE.IN_GAME;
     }
 
-    public void GameOver()
+    public static void GameOver()
     {
-        state = STATE.GAME_OVER;
+        mainInstance.state = STATE.GAME_OVER;
         // Afficher le panneau GameOver
 
         // Eteindre la musique du jeu

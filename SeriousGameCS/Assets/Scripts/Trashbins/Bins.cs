@@ -5,9 +5,17 @@ using UnityEngine;
 public class Bin
 {
     public Sprite sprite;
-    public Item.ItemType type;
+    public BinType type;
 
-    public Bin(Sprite sprite, Item.ItemType type)
+    public enum BinType
+    {
+        Plastic,
+        Glass,
+        Green,
+        Batteries,
+        Dechetterie
+    }
+    public Bin(Sprite sprite, BinType type)
     {
         this.sprite = sprite;
         this.type = type;
@@ -18,7 +26,7 @@ public class Bins : MonoBehaviour
 {
     public float hoverSize = 1.2f;
     public float defaultSize = 1f;
-    public Item.ItemType binType;
+    public Bin.BinType binType;
     public ConveyorBelt belt;
     public player player;
     public void Init(Bin bin)
@@ -37,7 +45,7 @@ public class Bins : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -51,7 +59,7 @@ public class Bins : MonoBehaviour
     //Event lorsque la souris quitte la zone du bouton
     public void OnMouseExit()
     {
-        //Restaure la taille du texte par défaut lorsque la souris quitte le bouton
+        //Restaure la taille du texte par d?faut lorsque la souris quitte le bouton
         transform.localScale = new Vector3(defaultSize, defaultSize, defaultSize);
     }
 
@@ -62,30 +70,10 @@ public class Bins : MonoBehaviour
         {
 
             Item item = selectedItem.GetComponent<ItemScript>().item;
-            if (item.type == binType)
-            {
-                player.AddPoints(item.score);
-            }
-            else
-            {
-                player.AddPoints(-2*item.score);
-                player.onError();
-            }
+
+            AllBins.checkTrash(item, binType, belt);
             Destroy(selectedItem.gameObject);
         }
     }
 
-    //Lorsque l'item est n'est mis dans aucune poubelle -> donc dans la poubelle grise
-    public static void letInGarbage(Item item)
-    {
-        if (item.type != Item.ItemType.Organic)
-        {
-            player.onError();
-            player.AddPoints(-2*item.score);
-        }
-        else
-        {
-            player.AddPoints(item.score);
-        }
-    }
 }

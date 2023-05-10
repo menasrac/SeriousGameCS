@@ -59,7 +59,7 @@ public class ConveyorBelt : MonoBehaviour
         // Si l'objet est sorti de la zone du tapis roulant, le supprimer
         if (transform.childCount > 0 && transform.GetChild(0).localPosition.x + transform.GetChild(0).localScale.x * 0.5f > transform.right.x * 0.5f)
         {
-            Bins.letInGarbage(transform.GetChild(0).GetComponent<ItemScript>().item);
+            AllBins.letInGarbage(transform.GetChild(0).GetComponent<ItemScript>().item);
             Destroy(transform.GetChild(0).gameObject);
             Destroy(selectedItem.gameObject);
         }
