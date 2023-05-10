@@ -12,6 +12,7 @@ public class dev : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         //Charger l'image depuis les ressources
         Texture2D texture = Resources.Load<Texture2D>("Bins/yellowBin");
 
@@ -36,6 +37,11 @@ public class dev : MonoBehaviour
         {
             Debug.LogError("Impossible de charger l'image");
         }
+=======
+        levelText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        player = GameObject.FindObjectOfType<player>();
+       
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame

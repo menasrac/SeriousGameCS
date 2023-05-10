@@ -5,9 +5,17 @@ using UnityEngine;
 public class Bin
 {
     public Sprite sprite;
-    public Item.ItemType type;
+    public BinType type;
 
-    public Bin(Sprite sprite, Item.ItemType type)
+    public enum BinType
+    {
+        Plastic,
+        Glass,
+        Green,
+        Batteries,
+        Dechetterie
+    }
+    public Bin(Sprite sprite, BinType type)
     {
         this.sprite = sprite;
         this.type = type;
@@ -18,7 +26,7 @@ public class Bins : MonoBehaviour
 {
     public float hoverSize = 1.2f;
     public float defaultSize = 1f;
-    public Item.ItemType binType;
+    public Bin.BinType binType;
     public ConveyorBelt belt;
     public player player;
     public void Init(Bin bin)
@@ -62,6 +70,7 @@ public class Bins : MonoBehaviour
         {
 
             Item item = selectedItem.GetComponent<ItemScript>().item;
+<<<<<<< Updated upstream
             if (item.type == binType)
             {
                 player.AddPoints(item.score);
@@ -73,4 +82,12 @@ public class Bins : MonoBehaviour
             Destroy(selectedItem.gameObject);
         }
     }
+=======
+            AllBins.checkTrash(item, binType, belt);
+            Destroy(selectedItem.gameObject);
+        }
+    }
+
+   
+>>>>>>> Stashed changes
 }

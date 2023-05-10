@@ -58,4 +58,33 @@ public class player : MonoBehaviour
     }
 
 
+<<<<<<< Updated upstream
+=======
+    public static void onError() 
+    {
+        Debug.Log(remainingLives + "onError");
+        switch (remainingLives)
+        {
+            case 3:
+                remainingLives -= 1;
+                heart1.gameObject.SetActive(false);
+                break;
+            case 2:
+                remainingLives -= 1;
+                heart2.gameObject.SetActive(false);
+                break;
+            case 1:
+                remainingLives -= 1;
+                heart3.gameObject.SetActive(false);
+                main.GameOver();
+                break;
+        }
+    }
+
+    public void newLevel()
+    {
+
+    }
+        
+>>>>>>> Stashed changes
 }
