@@ -56,7 +56,7 @@ public class Item
 //On va définir nos items ici
 public class Items
 {
-    public Item plasticBottle = new Item("plasticBottle", 10f, Item.ItemType.Plastic).setLevel(1);
+    public Item plasticBottle = new Item("plastic_Bottle", 10f, Item.ItemType.Plastic).setLevel(1);
     public Item apple = new Item("apple", 10f, Item.ItemType.Organic).setLevel(2);
     public Item yogurt = new Item("yogurt", 10f, Item.ItemType.Plastic).setLevel(1);
     public Item glassBottle = new Item("glassBottle", 10f, Item.ItemType.Glass).setLevel(3);

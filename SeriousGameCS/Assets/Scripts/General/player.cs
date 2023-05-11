@@ -8,12 +8,13 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public static float score = 50f;
+    public static float score;
+    private static float initialScore = 50;
     public TextMeshProUGUI scoreText;
     public static int level = 1;
-    private static int remainingLives = 3;
+    public static int remainingLives;
     public GameObject heartPanel;
-    private static Transform heart1, heart2, heart3;
+    public static Transform heart1, heart2, heart3;
     public GameObject mainGO;
     public static main main;
     public GameObject tipContent;
@@ -21,11 +22,11 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = initialScore;
         main = mainGO.GetComponent<main>();
         heart1 = heartPanel.transform.GetChild(0);
         heart2 = heartPanel.transform.GetChild(1);
         heart3 = heartPanel.transform.GetChild(2);
-        Debug.Log(heart1.name + heart3.name);
     }
 
     // Update is called once per frame
@@ -93,7 +94,6 @@ public class player : MonoBehaviour
     //Erreur commise
     public static void onError()
     {
-        Debug.Log(remainingLives + "onError");
         switch (remainingLives)
         {
             case 3:
@@ -111,8 +111,8 @@ public class player : MonoBehaviour
                 break;
         }
     }
-//Ce qu'on fait lorsqu'on monte de level
-public void newLevel()
+    //Ce qu'on fait lorsqu'on monte de level
+    public void newLevel()
     {
         Tip.newLevelTip(level, tipContent);
         switch (level)
@@ -130,5 +130,19 @@ public void newLevel()
                 break;
         }
     }
+    //Reset les coeurs graphiques
+    public static void resetLivesUI()
+    {
+        heart1.gameObject.SetActive(true); 
+        heart2.gameObject.SetActive(true); 
+        heart3.gameObject.SetActive(true);
+    }
+    //Reset la vie restante et le score
+    public static void resetPlayer()
+    {
+        score = initialScore;
+        remainingLives = 3;
+    }
 
 }
+

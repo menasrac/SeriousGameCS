@@ -65,7 +65,7 @@ public class Bins : MonoBehaviour
 
     public void OnClick()
     {
-        Transform selectedItem = belt.getSelectedItem();
+        Transform selectedItem = ConveyorBelt.getSelectedItem();
         if (selectedItem != null)
         {
 

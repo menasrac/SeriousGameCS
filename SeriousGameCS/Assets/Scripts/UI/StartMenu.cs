@@ -22,9 +22,7 @@ public class StartMenu : MonoBehaviour
 
     public void PlayGame ()
     {
-        inGamePanel.SetActive(true);
-        StartMenuPanel.SetActive(false);
-        Time.timeScale = 0f;
+        main.LaunchGame();
     }
 
     public void Quit()

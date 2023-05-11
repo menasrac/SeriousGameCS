@@ -11,15 +11,21 @@ public class ConveyorBelt : MonoBehaviour
     public float itemSpeed = 5f; // Vitesse des objets sur le tapis roulant
     public float conveyorSpeed = 0.5f;
     Vector3 spawnPoint = new Vector3(-8f, 0f, 0f);
-    private Transform selectedItem = null; // Variable pour stocker l'objet sélectionné
+    private static Transform selectedItem = null; // Variable pour stocker l'objet sélectionné
     float _lastSpawnTime = 0.0f;
     private int duration;
     private Items items;
+
+    //private static ConveyorBelt instance;
+    private void Awake()
+    {
+        //instance = this;
+    }
     void Start()
     {
         items = new Items();
     }
-
+    int i = 0;
 
     void Update()
     {
@@ -99,9 +105,17 @@ public class ConveyorBelt : MonoBehaviour
         
     }
 
-    public Transform getSelectedItem()
+    public static Transform getSelectedItem()
     {
         return (selectedItem);
+    }
+
+  public void clearItems()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
 

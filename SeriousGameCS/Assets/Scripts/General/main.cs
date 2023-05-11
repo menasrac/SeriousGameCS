@@ -7,26 +7,20 @@ using UnityEngine.UI;
 public class main : MonoBehaviour
 {
     public ConveyorBelt conveyorBelt; // Une référence vers le script du tapis roulant
-
+    private static ConveyorBelt conveyorBeltInstance;
 
 
     public enum STATE { WELCOME_PAGE, IN_GAME, GAME_OVER }
 
-    public STATE state;
-    private static main mainInstance;
+    public static STATE state;
 
     //public UIManager uiManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainInstance = this;
-        //state = STATE.WELCOME_PAGE;
-        //uiManager.GoToStateWelcome();
-
-        //coroutine = AddItem();
-        //StartCoroutine(coroutine);
-
+        conveyorBeltInstance = conveyorBelt;
+        Menu();
     }
 
     // Update is called once per frame
@@ -41,31 +35,52 @@ public class main : MonoBehaviour
             case STATE.IN_GAME:
                 UpdateInGame();
                 break;
+            case STATE.GAME_OVER:
+                UpdateGameOver();
+                break;
         }
 
     }
     //Ajouter des points au joueur
 
-    public void UpdateWelcome()
+    public static void UpdateWelcome()
     {
 
     }
 
-    public void UpdateInGame()
+    public static void UpdateInGame()
     {
 
     }
 
-    public void LaunchGame(int numLevel)
+    public static void UpdateGameOver()
+    {
+        
+    }
+
+    public static void Menu()
+    {
+        state = STATE.WELCOME_PAGE;
+        PauseGame();
+        UIManager.GoToStateWelcome();
+    }
+
+    public static void LaunchGame()
     {
         state = STATE.IN_GAME;
+
+        ResumeGame();
+        player.resetPlayer();
+        conveyorBeltInstance.clearItems();
+        UIManager.GoToStateInGame();
+
     }
 
     public static void GameOver()
     {
-        mainInstance.state = STATE.GAME_OVER;
+        state = STATE.GAME_OVER;
         // Afficher le panneau GameOver
-
+        UIManager.GoToStateGameOver();
         // Eteindre la musique du jeu
 
         // Se déconnecter du serveur

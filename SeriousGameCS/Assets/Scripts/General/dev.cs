@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class dev : MonoBehaviour
 {
     public ConveyorBelt conveyorBelt;
-    public RawImage selectedItemImage;
     public GameObject yellowBinGO;
     private TextMeshProUGUI levelText;
     //private player player;
@@ -24,21 +23,6 @@ public class dev : MonoBehaviour
     void Update()
     {
         levelText.text = "level=" + player.level;
-        Transform selectedItem = conveyorBelt.getSelectedItem();
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log(selectedItem);
-        }
-
-        if (selectedItem != null )
-        {
-            selectedItemImage.gameObject.SetActive(true);
-            selectedItemImage.texture = selectedItem.GetComponent<SpriteRenderer>().sprite.texture;
-        }
-        else
-        {
-            selectedItemImage.gameObject.SetActive(false);
-        }
 
         if (Input.GetKeyDown(KeyCode.K))
         {

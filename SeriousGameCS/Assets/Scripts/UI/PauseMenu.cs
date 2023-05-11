@@ -51,9 +51,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Menu()
     {
-        inGamePanel.SetActive(false);
-        StartMenuPanel.SetActive(true);
-        main.PauseGame();
+        main.Menu();
     }
 
     public void Quit()

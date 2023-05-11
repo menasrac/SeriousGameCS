@@ -5,9 +5,10 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        instance = this;
+
     }
 
     // Update is called once per frame
@@ -18,47 +19,54 @@ public class UIManager : MonoBehaviour
             main.PauseGame();
         }
     }
+    private static UIManager instance;
     public GameObject panelWelcomePage;
     public GameObject panelInGame;
     public GameObject panelGameOver;
     public GameObject panelTips;
 
-    public void LaunchLevel2()
+    public void LaunchLevel()
     {
         main main = GameObject.FindObjectOfType<main>();
         if (main != null)
-            main.LaunchGame(2);
+            main.LaunchGame();
     }
 
-    public void GoToStateWelcome()
+    public static void GoToStateWelcome()
     {
-        panelWelcomePage.SetActive(true);
-        panelGameOver.SetActive(false);
-        panelInGame.SetActive(false);
+        instance.panelWelcomePage.SetActive(true);
+        instance.panelGameOver.SetActive(false);
+        instance.panelInGame.SetActive(false);
+        instance.panelTips.SetActive(false);
     }
 
-    public void GoToStateInGame()
+    public static void GoToStateInGame()
     {
-        panelWelcomePage.SetActive(false);
-        panelGameOver.SetActive(false);
-        panelInGame.SetActive(true);
+        instance.panelWelcomePage.SetActive(false);
+        instance.panelGameOver.SetActive(false);
+        instance.panelInGame.SetActive(true);
+        instance.panelTips.SetActive(false);
+        player.resetLivesUI();
+
     }
 
-    public void GoToStateGameOver()
+    public static void GoToStateGameOver()
     {
-        panelWelcomePage.SetActive(false);
-        panelGameOver.SetActive(true);
-        panelInGame.SetActive(false);
+        instance.panelWelcomePage.SetActive(false);
+        instance.panelGameOver.SetActive(true);
+        instance.panelInGame.SetActive(false);
+        instance.panelTips.SetActive(false);
+        GameOverMenu.GameOverScore();
     }
 
-    public void openTipMenu()
+    public static void openTipMenu()
     { 
-        panelTips.SetActive(true);
+        instance.panelTips.SetActive(true);
         main.PauseGame();
     }
-    public void closeTipMenu()
+    public static void closeTipMenu()
     {
-        panelTips.SetActive(false);
+        instance.panelTips.SetActive(false);
         main.ResumeGame();
     }
 }

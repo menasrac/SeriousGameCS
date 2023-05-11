@@ -30,8 +30,8 @@ public class AllBins : MonoBehaviour
     {
         if (item.type != Item.ItemType.Organic)
         {
-            player.onError();
             player.AddPoints(-2 * item.score);
+            player.onError();
         }
         else
         {
