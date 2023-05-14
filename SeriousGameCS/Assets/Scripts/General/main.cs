@@ -70,9 +70,10 @@ public class main : MonoBehaviour
         state = STATE.IN_GAME;
 
         ResumeGame();
+        UIManager.GoToStateInGame();
         player.resetPlayer();
         conveyorBeltInstance.clearItems();
-        UIManager.GoToStateInGame();
+        AllBins.Reset();
 
     }
 

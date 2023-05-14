@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class player : MonoBehaviour
 {
@@ -18,6 +19,17 @@ public class player : MonoBehaviour
     public GameObject mainGO;
     public static main main;
     public GameObject tipContent;
+
+    public AudioClip errorSound;
+
+    public GameObject gamePanel;
+
+    static player _player;
+
+    private void Awake()
+    {
+        _player = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +106,8 @@ public class player : MonoBehaviour
     //Erreur commise
     public static void onError()
     {
+        EffectsManager.PlaySelectedItemSound(_player.errorSound);
+        LeanTween.move(_player.gamePanel.gameObject, UnityEngine.Random.insideUnitCircle * 2.0f, 0.5f).setEasePunch();
         switch (remainingLives)
         {
             case 3:
@@ -140,6 +154,7 @@ public class player : MonoBehaviour
     //Reset la vie restante et le score
     public static void resetPlayer()
     {
+        level = 1;
         score = initialScore;
         remainingLives = 3;
     }

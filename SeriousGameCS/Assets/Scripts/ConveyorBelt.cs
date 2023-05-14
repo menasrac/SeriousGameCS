@@ -16,6 +16,10 @@ public class ConveyorBelt : MonoBehaviour
     private int duration;
     private Items items;
 
+
+    public AudioClip selectedItemSound;
+
+
     //private static ConveyorBelt instance;
     private void Awake()
     {
@@ -25,7 +29,6 @@ public class ConveyorBelt : MonoBehaviour
     {
         items = new Items();
     }
-    int i = 0;
 
     void Update()
     {
@@ -54,13 +57,14 @@ public class ConveyorBelt : MonoBehaviour
         //Vector3 rightEdge = transform.position + transform.right * transform.localScale.x * 0.5f;
 
         // Si l'objet entre dans la zone de sélection, on le met en sélectionné
-        if (transform.childCount > 0 && transform.GetChild(0).localPosition.x > 0.3f)
+        if (transform.childCount > 0 && selectedItem == null && transform.GetChild(0).localPosition.x > 0.1f)
         {
-            Transform item = transform.GetChild(0);
-            ItemScript itemScript = item.GetComponent<ItemScript>(); // Ajoutez cette ligne
-            itemScript.SelectItem(); // Ajoutez cette ligne
+            //Transform item = transform.GetChild(0);
+            //ItemScript itemScript = item.GetComponent<ItemScript>(); // Ajoutez cette ligne
+            //itemScript.SelectItem(); // Ajoutez cette ligne
             selectedItem = transform.GetChild(0); // Stocker l'objet sélectionné
             selectedItem.GetComponent<ItemScript>().SelectItem(); // Activer la sélection de l'objet
+            EffectsManager.PlaySelectedItemSound(selectedItemSound);
         }
         // Si l'objet est sorti de la zone du tapis roulant, le supprimer
         if (transform.childCount > 0 && transform.GetChild(0).localPosition.x + transform.GetChild(0).localScale.x * 0.5f > transform.right.x * 0.5f)
@@ -68,6 +72,7 @@ public class ConveyorBelt : MonoBehaviour
             AllBins.letInGarbage(transform.GetChild(0).GetComponent<ItemScript>().item);
             Destroy(transform.GetChild(0).gameObject);
             Destroy(selectedItem.gameObject);
+            selectedItem = null;
         }
 
         //Animer le tapis

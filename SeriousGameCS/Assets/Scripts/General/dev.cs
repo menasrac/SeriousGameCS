@@ -9,6 +9,7 @@ public class dev : MonoBehaviour
     public ConveyorBelt conveyorBelt;
     public GameObject yellowBinGO;
     private TextMeshProUGUI levelText;
+    public player playerInstance;
     //private player player;
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class dev : MonoBehaviour
         {
             Debug.Log("levelup!");
             player.level += 1;
+            playerInstance.newLevel();
         }
     }
 
