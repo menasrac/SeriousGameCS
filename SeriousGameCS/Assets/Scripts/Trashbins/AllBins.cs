@@ -99,6 +99,7 @@ public class AllBins : MonoBehaviour
         }
     }
 
+    //Meme chose mais avec une liste d'itemType
     private static void compareItemToBin(Item item, List<Item.ItemType> itemTypeList)
     {
         bool isGood = false;
@@ -119,4 +120,6 @@ public class AllBins : MonoBehaviour
             player.onError();
         }
     }
+
+
  }

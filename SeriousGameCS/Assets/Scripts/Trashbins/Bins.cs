@@ -72,6 +72,7 @@ public class Bins : MonoBehaviour
             Item item = selectedItem.GetComponent<ItemScript>().item;
 
             AllBins.checkTrash(item, binType, belt);
+            EffectsManager.PlayItemTypeSound(item.type);
             Destroy(selectedItem.gameObject);
         }
     }

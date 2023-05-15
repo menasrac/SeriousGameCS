@@ -40,7 +40,6 @@ public class SelectedPanel : MonoBehaviour
 
     public static string FormatString(string input)
     {
-        string output;
         if (input == null)
         {
             return "No Input";

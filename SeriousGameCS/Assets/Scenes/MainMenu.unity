@@ -3026,7 +3026,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.9
+  m_fontSize: 38.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3962,7 +3962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.46229917, y: 0.22170475}
   m_AnchorMax: {x: 0.5498999, y: 0.3075186}
-  m_AnchoredPosition: {x: -0.2999878, y: -0.5001068}
+  m_AnchoredPosition: {x: -0.2999878, y: -0.50009155}
   m_SizeDelta: {x: -0.539978, y: 0.17001343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610231669
@@ -6885,7 +6885,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -6901,7 +6901,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
 --- !u!114 &1080438426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9976,6 +9976,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedItemSound: {fileID: 8300000, guid: 340cee159c7916149bf20259079b1c62, type: 3}
   audioSource: {fileID: 2040977906}
+  cardboardSound: {fileID: 8300000, guid: cb1d4d294074f144f82257134d5dd34a, type: 3}
+  electronicSound: {fileID: 0}
+  glassSound: {fileID: 8300000, guid: b8128564e05f3854ebfd04a6ba739911, type: 3}
+  greenSound: {fileID: 0}
+  metalSound: {fileID: 8300000, guid: 42459e0e7944de34d883194f84254990, type: 3}
+  nonrecyclableSound: {fileID: 0}
+  plasticSound: {fileID: 8300000, guid: aac4c56e5c513054fb71984d901c6aa1, type: 3}
+  trashSound: {fileID: 0}
 --- !u!82 &2040977906
 AudioSource:
   m_ObjectHideFlags: 0
