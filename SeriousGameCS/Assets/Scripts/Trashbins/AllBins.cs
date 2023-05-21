@@ -60,6 +60,9 @@ public class AllBins : MonoBehaviour
             case Bin.BinType.Dechetterie:
                 compareItemToBin(item, new List<Item.ItemType> { Item.ItemType.Green, Item.ItemType.Electronic});
                 break;
+            case Bin.BinType.Trash:
+                letInGarbage(item);
+                break;
             default:
                 break;
         }

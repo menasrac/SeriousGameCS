@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 609.7, y: 145.1}
-  m_SizeDelta: {x: 80.36, y: 78.4}
+  m_AnchoredPosition: {x: 597.87, y: 155.47}
+  m_SizeDelta: {x: 64.56, y: 91.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &967060
 SpriteRenderer:
@@ -206,12 +206,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6353d73971af9024795c4b2f85da0add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13e962f5f7fd3584680796bc9f998d57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 76.6, y: 76.3}
+  m_Size: {x: 110.79, y: 128.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -231,9 +231,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverSize: 1.2
   defaultSize: 1
-  binType: 0
+  binType: 5
   belt: {fileID: 1601760759}
-  player: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 13e962f5f7fd3584680796bc9f998d57, type: 3}
+  sprite2: {fileID: 21300000, guid: f10fb78010ba4694c80d6121ee49c254, type: 3}
 --- !u!114 &967062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +356,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0f3e9cd9619b6774e95d45fae3512e58, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1117,10 +1118,10 @@ RectTransform:
   m_Father: {fileID: 1208252324}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.43800002, y: 0.287}
-  m_AnchorMax: {x: 0.5596977, y: 0.3912596}
-  m_AnchoredPosition: {x: 0.9999695, y: 1.1999512}
-  m_SizeDelta: {x: -1.5175171, y: -1.8396912}
+  m_AnchorMin: {x: 0.6835001, y: 0.2741387}
+  m_AnchorMax: {x: 0.80475014, y: 0.372}
+  m_AnchoredPosition: {x: -0.5, y: -0.5}
+  m_SizeDelta: {x: -0.5175171, y: 1.1603088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208514211
 MonoBehaviour:
@@ -1320,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jouer
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1347,12 +1348,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 123.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 800
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2179,8 +2180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 61.699997, y: -0.0000054836}
-  m_SizeDelta: {x: 80.36, y: 78.4}
+  m_AnchoredPosition: {x: 64.899994, y: 20.5}
+  m_SizeDelta: {x: 80.36, y: 94.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &373723203
 SpriteRenderer:
@@ -2223,12 +2224,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6353d73971af9024795c4b2f85da0add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1511ab3ebe2ee2f4da8bf66dc2f46d11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 76.6, y: 76.3}
+  m_Size: {x: 112.9, y: 122.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2250,7 +2251,8 @@ MonoBehaviour:
   defaultSize: 1
   binType: 0
   belt: {fileID: 1601760759}
-  player: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 1511ab3ebe2ee2f4da8bf66dc2f46d11, type: 3}
+  sprite2: {fileID: 21300000, guid: 99093e6bcdfca884c86b3c03d9172b1c, type: 3}
 --- !u!114 &373723205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2764,7 +2766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3026,7 +3028,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.5
+  m_fontSize: 41.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4743,8 +4745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 318.7, y: -0.00001509}
-  m_SizeDelta: {x: 80.36, y: 78.4}
+  m_AnchoredPosition: {x: 318.7, y: 20.5}
+  m_SizeDelta: {x: 80.36, y: 94.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &743341030
 SpriteRenderer:
@@ -4787,12 +4789,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 04fb0534a6606bc47bb287fb1d008b9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 405b6ddc7d5bea04aad2bbbbf6f77b7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 76.6, y: 76.3}
+  m_Size: {x: 113, y: 122.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4814,7 +4816,8 @@ MonoBehaviour:
   defaultSize: 1
   binType: 2
   belt: {fileID: 1601760759}
-  player: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 405b6ddc7d5bea04aad2bbbbf6f77b7e, type: 3}
+  sprite2: {fileID: 21300000, guid: bf87e2e3a01336f45b8576d96d1a393f, type: 3}
 --- !u!114 &743341032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5517,10 +5520,10 @@ RectTransform:
   m_Father: {fileID: 1208252324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3768999, y: 0.577}
-  m_AnchorMax: {x: 0.6223993, y: 0.80281633}
-  m_AnchoredPosition: {x: 0.5, y: -0.08886719}
-  m_SizeDelta: {x: 8.650024, y: -0.0736084}
+  m_AnchorMin: {x: 0.58225006, y: 0.5448614}
+  m_AnchorMax: {x: 0.9425001, y: 0.83486134}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -1.8200073, y: 2.9099998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842138797
 MonoBehaviour:
@@ -6268,7 +6271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &927463784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6888,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 0
+          m_CallState: 1
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -6901,7 +6904,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 0
+          m_CallState: 1
 --- !u!114 &1080438426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7419,7 +7422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1208252324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7462,7 +7465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b5a4b6487bc933489e9fa81f8a76e63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a3158fe02deb4948b60bfa9f6f66cd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8273,8 +8276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 446.3, y: -0.00001509}
-  m_SizeDelta: {x: 80.36, y: 78.4}
+  m_AnchoredPosition: {x: 446.3, y: 20.5}
+  m_SizeDelta: {x: 80.36, y: 94.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1551977853
 SpriteRenderer:
@@ -8317,12 +8320,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a607519975d30049a4bb6bb94788743, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 817c33a281c64a74c95699355364c8f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 76.6, y: 76.3}
+  m_Size: {x: 113, y: 122.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8344,7 +8347,8 @@ MonoBehaviour:
   defaultSize: 1
   binType: 4
   belt: {fileID: 1601760759}
-  player: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 817c33a281c64a74c95699355364c8f5, type: 3}
+  sprite2: {fileID: 21300000, guid: d14db0f86758fe7429b34d17ddf70aa1, type: 3}
 --- !u!114 &1551977855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9554,8 +9558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 190.2, y: -0.0000054836}
-  m_SizeDelta: {x: 80.36, y: 78.4}
+  m_AnchoredPosition: {x: 190.2, y: 20.5}
+  m_SizeDelta: {x: 80.36, y: 94.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1951866303
 SpriteRenderer:
@@ -9598,12 +9602,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c5a6bd425f04fe4aa225a9452b229d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe4a44974d4c15a4db5846b8084b79f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 76.6, y: 76.3}
+  m_Size: {x: 113, y: 122.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9625,7 +9629,8 @@ MonoBehaviour:
   defaultSize: 1
   binType: 1
   belt: {fileID: 1601760759}
-  player: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: fe4a44974d4c15a4db5846b8084b79f4, type: 3}
+  sprite2: {fileID: 21300000, guid: afb7ae78538f97848b7620acf6375756, type: 3}
 --- !u!114 &1951866305
 MonoBehaviour:
   m_ObjectHideFlags: 0

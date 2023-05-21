@@ -29,12 +29,12 @@ public class ConveyorBelt : MonoBehaviour
     {
         items = new Items();
     }
-
+    //Temps entre chaque apparition d'item
+    public static float deltaTime;
     void Update()
     {
-        //Faire apparaitre les items toutes les duration sec
-        duration = 3;
-        if (Time.time > _lastSpawnTime + duration)
+        //Faire apparaitre les items toutes les deltaTime sec
+        if (Time.time > _lastSpawnTime + deltaTime)
         {
 
             Item item = chooseRandomItem(player.level);
@@ -87,7 +87,7 @@ public class ConveyorBelt : MonoBehaviour
         int randomIndex = Random.Range(0, allItems.Count);
 
         // Obtient un élément aléatoire à partir de la liste des items
-        Item randomItem = allItems[randomIndex];
+        Item randomItem = allItems[randomIndex].randomizeTexture();
         return (randomItem);
     }
 
@@ -117,6 +117,7 @@ public class ConveyorBelt : MonoBehaviour
 
   public void clearItems()
     {
+        deltaTime = 2.4f;
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);

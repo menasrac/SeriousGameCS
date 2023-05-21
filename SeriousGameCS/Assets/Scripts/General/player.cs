@@ -129,15 +129,16 @@ public class player : MonoBehaviour
     public void newLevel()
     {
         Tip.newLevelTip(level, tipContent);
+        ConveyorBelt.deltaTime -= 0.2f;
         switch (level)
         {
             default:
                 break;
             case 2:
-                AllBins.ActivateBin("green");
+                AllBins.ActivateBin("glass");
                 break;
             case 4:
-                AllBins.ActivateBin("glass");
+                AllBins.ActivateBin("green");
                 break;
             case 6:
                 AllBins.ActivateBin("dechetterie");

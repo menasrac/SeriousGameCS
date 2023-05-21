@@ -35,12 +35,12 @@ public class Tip : MonoBehaviour
         {
 
             case 2:
-                texture = Resources.Load<Texture2D>("Sprites/glassBottle");
+                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 tip = CreateTip("Tip2", sprite, "Tip2");
                 break;
             case 3:
-                texture = Resources.Load<Texture2D>("Sprites/batteries");
+                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 tip = CreateTip("Tip3", sprite, "Tip3");
                 break;
@@ -50,7 +50,7 @@ public class Tip : MonoBehaviour
                 tip = CreateTip("Tip4", sprite, "Tipi4");
                 break;
             default:
-                texture = Resources.Load<Texture2D>("Sprites/apple");
+                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 tip = CreateTip("TipD", sprite, "TipiD");
                 break;
