@@ -56,7 +56,7 @@ public class Bins : MonoBehaviour
     {
         //Change la taille du texte lorsque la souris est sur le bouton
         transform.localScale = new Vector3(hoverSize, hoverSize, hoverSize);
-        GetComponent<SpriteRenderer>().sprite = sprite2;
+        //GetComponent<SpriteRenderer>().sprite = sprite2;
     }
 
     //Event lorsque la souris quitte la zone du bouton
@@ -69,6 +69,7 @@ public class Bins : MonoBehaviour
 
     public void OnClick()
     {
+        //GetComponent<SpriteRenderer>().sprite = sprite2;
         Transform selectedItem = ConveyorBelt.getSelectedItem();
         if (selectedItem != null)
         {
@@ -81,4 +82,12 @@ public class Bins : MonoBehaviour
         }
     }
 
+    public void PointerDown()
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite2;
+    }
+    public void PointerUp()
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite1;
+    }
 }

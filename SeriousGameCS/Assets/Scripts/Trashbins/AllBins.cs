@@ -52,7 +52,7 @@ public class AllBins : MonoBehaviour
                 break;
 
             case Bin.BinType.Glass:
-                compareItemToBin(item, Item.ItemType.Glass);
+                compareItemToBin(item, new List<Item.ItemType> { Item.ItemType.Glass});
                 break;
             case Bin.BinType.Green:
                 compareItemToBin(item, Item.ItemType.Green);

@@ -65,7 +65,6 @@ public class Tip : MonoBehaviour
                 break;
 
             case 2:
--<<<<<<< tip-text
                 //texture = Resources.Load<Texture2D>("Sprites/wood");
                 //sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 //description = "Wood can't be recycled";
