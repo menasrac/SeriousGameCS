@@ -13,7 +13,8 @@ public class Bin
         Glass,
         Green,
         Batteries,
-        Dechetterie
+        Dechetterie,
+        Trash
     }
     public Bin(Sprite sprite, BinType type)
     {
@@ -28,9 +29,10 @@ public class Bins : MonoBehaviour
     public float defaultSize = 1f;
     public Bin.BinType binType;
     public ConveyorBelt belt;
-    public player player;
+    public Sprite sprite1, sprite2;
     public void Init(Bin bin)
     {
+
         GetComponent<SpriteRenderer>().sprite = bin.sprite;
         GetComponent<Bins>().binType = bin.type;
         // Associer une image au sprite de la poubelle
@@ -54,6 +56,7 @@ public class Bins : MonoBehaviour
     {
         //Change la taille du texte lorsque la souris est sur le bouton
         transform.localScale = new Vector3(hoverSize, hoverSize, hoverSize);
+        GetComponent<SpriteRenderer>().sprite = sprite2;
     }
 
     //Event lorsque la souris quitte la zone du bouton
@@ -61,6 +64,7 @@ public class Bins : MonoBehaviour
     {
         //Restaure la taille du texte par d?faut lorsque la souris quitte le bouton
         transform.localScale = new Vector3(defaultSize, defaultSize, defaultSize);
+        GetComponent<SpriteRenderer>().sprite = sprite1;
     }
 
     public void OnClick()

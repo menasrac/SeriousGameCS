@@ -32,7 +32,8 @@ public class Item
         this.type = type;
         try
         {
-            Texture2D texture = Resources.Load<Texture2D>("Sprites/" + name);
+            Texture2D[] textures = Resources.LoadAll<Texture2D>("Sprites/" + name);
+            Texture2D texture = textures[UnityEngine.Random.Range(0, textures.Length)];
             this.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
         }
         catch (Exception)
@@ -42,6 +43,8 @@ public class Item
         }
 
     }
+
+
     public Item(string name, float score, Sprite sprite,ItemType type)
     {
         this.name = name;
@@ -49,6 +52,25 @@ public class Item
         this.sprite = sprite;
         this.type = type;
     }
+
+    //Pour donner une texture au hasard lorsqu'on appelle un objet
+    public Item randomizeTexture()
+    {
+        if (this.sprite != null)
+        {
+            Texture2D[] textures = Resources.LoadAll<Texture2D>("Sprites/" + this.name);
+            Texture2D texture = textures[UnityEngine.Random.Range(0, textures.Length)];
+            this.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
+        }
+        else
+        {
+            this.sprite = null;
+        }
+        return this;
+    }
+
+
+    //Fixe le level de l'item lors de la déclaration
     public Item setLevel(int level)
     {
         this.level = level;
@@ -59,32 +81,31 @@ public class Item
 //On va définir nos items ici
 public class Items
 {
-    public Item plasticBottle = new Item("plastic_Bottle", 10f, Item.ItemType.Plastic).setLevel(1);
-    public Item apple = new Item("apple", 10f, Item.ItemType.Trash).setLevel(2);
+    public Item plastic_bottle = new Item("plastic_bottle", 10f, Item.ItemType.Plastic).setLevel(1);
+    public Item apple = new Item("apple", 10f, Item.ItemType.Trash).setLevel(1);
     public Item yogurt = new Item("yogurt", 10f, Item.ItemType.Plastic).setLevel(1);
-    public Item glassBottle = new Item("glassBottle", 10f, Item.ItemType.Glass).setLevel(3);
+    public Item glass_bottle = new Item("glass_bottle", 10f, Item.ItemType.Glass).setLevel(2);
     public Item peelings = new Item("peelings", 10f, Item.ItemType.Trash).setLevel(1);
-    public Item cardboardbox = new Item("cardboardbox", 10f, Item.ItemType.Cardboard).setLevel(2);
-    public Item cardboard = new Item("cardboard", 10f, Item.ItemType.Cardboard).setLevel(2);
-    public Item chipsbag = new Item("chipsbag", 10f, Item.ItemType.Plastic).setLevel(2);
-    public Item coffeecapsule = new Item("coffeecapsule", 10f, Item.ItemType.Metal).setLevel(4);
+    public Item cardboardbox = new Item("cardboardbox", 10f, Item.ItemType.Cardboard).setLevel(3);
+    public Item cardboard = new Item("cardboard", 10f, Item.ItemType.Cardboard).setLevel(3);
+    public Item coffee_capsule = new Item("coffee_capsule", 10f, Item.ItemType.Metal).setLevel(4);
     public Item napkin = new Item("napkin", 10f, Item.ItemType.Cardboard).setLevel(2);
-    public Item babybel = new Item("babybel", 20f, Item.ItemType.Trash).setLevel(2);
-    public Item bagOfChips = new Item("bagOfChips", 10f, Item.ItemType.Plastic).setLevel(1);
+    public Item babybel = new Item("babybel", 20f, Item.ItemType.Trash).setLevel(4);
+    public Item bag_of_chips = new Item("bag_of_chips", 10f, Item.ItemType.Plastic).setLevel(3);
     public Item batteries = new Item("batteries", 30f, Item.ItemType.Electronic).setLevel(6);
-    public Item plasticSpoon = new Item("plasticSpoon", 20f, Item.ItemType.Trash).setLevel(3);
-    public Item toothpaste = new Item("toothpaste", 10f, Item.ItemType.Plastic).setLevel(1);
-    public Item ketchupBottle = new Item("ketchupBottle", 10f, Item.ItemType.Plastic).setLevel(1);
-    public Item plasticBag = new Item("plasticBag", 10f, Item.ItemType.Plastic).setLevel(2);
-    public Item can = new Item("can", 15f, Item.ItemType.Metal).setLevel(2);
-    public Item canned = new Item("canned", 15f, Item.ItemType.Metal).setLevel(2);
-    public Item brokenPhone = new Item("brokenPhone", 25f, Item.ItemType.Electronic).setLevel(6);
+    public Item plastic_spoon = new Item("plastic_spoon", 20f, Item.ItemType.Trash).setLevel(3);
+    public Item toothpaste = new Item("toothpaste", 10f, Item.ItemType.Plastic).setLevel(3);
+    public Item ketchup_bottle = new Item("ketchup_bottle", 10f, Item.ItemType.Plastic).setLevel(1);
+    public Item plastic_bag = new Item("plastic_bag", 10f, Item.ItemType.Plastic).setLevel(4);
+    public Item can = new Item("can", 15f, Item.ItemType.Metal).setLevel(3);
+    public Item canned = new Item("canned", 15f, Item.ItemType.Metal).setLevel(3);
+    public Item broken_phone = new Item("broken_phone", 25f, Item.ItemType.Electronic).setLevel(6);
     public Item plants = new Item("plants", 10f, Item.ItemType.Green).setLevel(4);
     public Item microwave = new Item("microwave", 40, Item.ItemType.Electronic).setLevel(6);
-    public Item bottleOfPills = new Item("bottleOfPills", 10f, Item.ItemType.Nonrecyclable).setLevel(2);
+    public Item bottle_of_pills = new Item("bottle_of_pills", 10f, Item.ItemType.Nonrecyclable).setLevel(7);
     public Item mouse = new Item("mouse", 20f, Item.ItemType.Electronic).setLevel(6);
     public Item toy = new Item("toy", 15f, Item.ItemType.Nonrecyclable).setLevel(4);
-    public Item wood = new Item("wood", 25f, Item.ItemType.Nonrecyclable).setLevel(2);
+    public Item wood = new Item("wood", 25f, Item.ItemType.Nonrecyclable).setLevel(8);
 
 
 
@@ -101,9 +122,9 @@ public class Items
     //On veut une liste avec tous les items
     public List<Item> GetItems()
     {
-        List<Item> allItems = new List<Item> {plasticBottle, apple, yogurt, glassBottle, peelings, cardboardbox,
-            cardboard, chipsbag, coffeecapsule, napkin, babybel, bagOfChips, batteries, plasticSpoon, toothpaste,
-            ketchupBottle, plasticBag,can, canned, brokenPhone, plants, bottleOfPills, mouse, toy, wood };
+        List<Item> allItems = new List<Item> {plastic_bottle, apple, yogurt, glass_bottle, peelings, cardboardbox,
+            cardboard, coffee_capsule, napkin, babybel, bag_of_chips, batteries, plastic_spoon, toothpaste,
+            ketchup_bottle, plastic_bag,can, canned, broken_phone, plants, bottle_of_pills, mouse, toy, wood };
 
         return allItems;
 

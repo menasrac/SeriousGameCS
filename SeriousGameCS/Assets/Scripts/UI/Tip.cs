@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Tip : MonoBehaviour
 {
-    private static GameObject prefab; // Référence au prefab
+    private static GameObject prefab; // RÃ©fÃ©rence au prefab
     private static Canvas canvas;
     //private Coroutine tipCoroutine;
     //public GameObject content;
@@ -17,12 +17,12 @@ public class Tip : MonoBehaviour
         canvas = GameObject.FindObjectOfType<Canvas>();
     }
 
-    //Création d'un nouveau Tip
+    //CrÃ©ation d'un nouveau Tip
     private static TipPrefab CreateTip(string title, Sprite sprite, string description)
     {
         GameObject newPrefab = Instantiate(prefab, canvas.transform); // Instancier le prefab
-        TipPrefab customPrefabScript = newPrefab.GetComponent<TipPrefab>(); // Obtenir le script CustomPrefab attaché au prefab
-        customPrefabScript.Initialize(title, sprite, description); // Appeler la méthode Initialize pour personnaliser le prefab
+        TipPrefab customPrefabScript = newPrefab.GetComponent<TipPrefab>(); // Obtenir le script CustomPrefab attachÃ© au prefab
+        customPrefabScript.Initialize(title, sprite, description); // Appeler la mÃ©thode Initialize pour personnaliser le prefab
         return(customPrefabScript); 
     }
  
@@ -65,6 +65,7 @@ public class Tip : MonoBehaviour
                 break;
 
             case 2:
+-<<<<<<< tip-text
                 //texture = Resources.Load<Texture2D>("Sprites/wood");
                 //sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 //description = "Wood can't be recycled";
@@ -105,6 +106,9 @@ public class Tip : MonoBehaviour
                 //description = "Plastic spoons must be thrown to the Yellow Bin";
                 //tip = CreateTip("Tip10", sprite, description);
 
+                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
+                sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
+                tip = CreateTip("Tip3", sprite, "Tip3");
                 break;
 
             case 4:
@@ -172,14 +176,14 @@ public class Tip : MonoBehaviour
                 //description = "If it is broken you cannot recyle your phone";
                 //tip = CreateTip("Tip21", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/E-déchets");
+                texture = Resources.Load<Texture2D>("Sprites/E-dÃ©chets");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 description = "";
                 tip = CreateTip("Tip4", sprite, description);
                 break;
             
             default:
-                texture = Resources.Load<Texture2D>("Sprites/apple");
+                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 description = "You can eat it, not recycle it understood ?";
                 tip = CreateTip("TipD", sprite, description);
@@ -189,29 +193,29 @@ public class Tip : MonoBehaviour
         //Debug.Log(tip.titleText.text);
         //addToTipHistory(tip, content);
 
-        // Arrête la coroutine précédente s'il y en a une
+        // ArrÃªte la coroutine prÃ©cÃ©dente s'il y en a une
         //if (tipCoroutine != null)
         //{
           //StopCoroutine(tipCoroutine);
         //}
 
-        // Lance la coroutine pour afficher les tips les uns après les autres
+        // Lance la coroutine pour afficher les tips les uns aprÃ¨s les autres
         //tipCoroutine = StartCoroutine(DisplayTips(tip, content));
     }
 
     private static void addToTipHistory(TipPrefab tipPrefab, GameObject content)
     {
-        TipPrefab newTipPrefab = Instantiate(tipPrefab, content.transform); // Créer une nouvelle instance de TipPrefab
+        TipPrefab newTipPrefab = Instantiate(tipPrefab, content.transform); // CrÃ©er une nouvelle instance de TipPrefab
 
-        // Effectuer les modifications nécessaires sur la nouvelle instance
+        // Effectuer les modifications nÃ©cessaires sur la nouvelle instance
         newTipPrefab.removeCloseButton();
     }
     //private static IEnumerator DisplayTips(TipPrefab tipPrefab, GameObject content)
     //{
-        // Créez une liste de tips pour stocker les tips à afficher
+        // CrÃ©ez une liste de tips pour stocker les tips Ã  afficher
       //  List<TipPrefab> tips = new List<TipPrefab>();
 
-        // Instanciez tous les tips et ajoutez-les à la liste
+        // Instanciez tous les tips et ajoutez-les Ã  la liste
         //foreach (TipPrefab tip in tipPrefab)
         //{
           //  TipPrefab newTipPrefab = Instantiate(tip, content.transform);
@@ -219,7 +223,7 @@ public class Tip : MonoBehaviour
             //tips.Add(newTipPrefab);
 
             // Attendez un certain laps de temps avant d'afficher le prochain tip
-            //yield return new WaitForSeconds(2.0f); // Temps en secondes à ajuster selon vos besoins
+            //yield return new WaitForSeconds(2.0f); // Temps en secondes Ã  ajuster selon vos besoins
         //}
 
         // Affichez les tips un par un
@@ -234,7 +238,7 @@ public class Tip : MonoBehaviour
             //tip.gameObject.SetActive(false);
         //}
 
-        // Réactivez le jeu une fois que tous les tips ont été affichés
+        // RÃ©activez le jeu une fois que tous les tips ont Ã©tÃ© affichÃ©s
         //main.ResumeGame();
     //}
 
