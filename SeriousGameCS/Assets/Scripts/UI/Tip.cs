@@ -21,6 +21,7 @@ public class Tip : MonoBehaviour
     private static TipPrefab CreateTip(string title, Sprite sprite, string description)
     {
         GameObject newPrefab = Instantiate(prefab, canvas.transform); // Instancier le prefab
+        newPrefab.transform.localPosition = newPrefab.transform.localPosition + new Vector3(0f, 0f, -1f);
         TipPrefab customPrefabScript = newPrefab.GetComponent<TipPrefab>(); // Obtenir le script CustomPrefab attaché au prefab
         customPrefabScript.Initialize(title, sprite, description); // Appeler la méthode Initialize pour personnaliser le prefab
         return(customPrefabScript); 
@@ -190,7 +191,7 @@ public class Tip : MonoBehaviour
         }
         main.PauseGame();
         //Debug.Log(tip.titleText.text);
-        //addToTipHistory(tip, content);
+        addToTipHistory(tip, content);
 
         // Arrête la coroutine précédente s'il y en a une
         //if (tipCoroutine != null)

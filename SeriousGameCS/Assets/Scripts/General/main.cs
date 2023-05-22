@@ -63,6 +63,7 @@ public class main : MonoBehaviour
         state = STATE.WELCOME_PAGE;
         PauseGame();
         UIManager.GoToStateWelcome();
+        MusicManager.MainMenuMusic();
     }
 
     public static void LaunchGame()
@@ -70,6 +71,7 @@ public class main : MonoBehaviour
         state = STATE.IN_GAME;
 
         ResumeGame();
+        MusicManager.StopMusic();
         UIManager.GoToStateInGame();
         player.resetPlayer();
         conveyorBeltInstance.clearItems();
@@ -83,7 +85,7 @@ public class main : MonoBehaviour
         // Afficher le panneau GameOver
         UIManager.GoToStateGameOver();
         // Eteindre la musique du jeu
-
+        MusicManager.StopMusic();
         // Se déconnecter du serveur
     }
 
