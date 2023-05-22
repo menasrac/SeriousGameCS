@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class TipPrefab : MonoBehaviour
 {
-    public TextMeshProUGUI titleText;
+    public TMP_Text descriptionText;
+    public TMP_Text titleText;
     public Image image;
-    public TextMeshProUGUI descriptionText;
+    //public TextMeshProUGUI descriptionText;
     public GameObject closeButton;
 
     public void Initialize(string title, Sprite sprite, string description)
@@ -16,6 +17,11 @@ public class TipPrefab : MonoBehaviour
         titleText.text = title;
         image.sprite = sprite;
         descriptionText.text = description;
+
+        // Description parameters
+        descriptionText.font = Resources.Load<TMP_FontAsset>("Fonts/Arial SDF"); // Font
+        descriptionText.color = Color.black; // Color
+        descriptionText.fontSize = 24; // Size
     }
 
     private void Update()
@@ -26,8 +32,17 @@ public class TipPrefab : MonoBehaviour
         }
     }
 
+    private bool isClosed;
+
+    public bool IsClosed
+    {
+        get { return isClosed; }
+    }
+
+
     public void close()
     {
+        isClosed = true;
         Destroy(gameObject);
 
         if (!PauseMenu.GameIsPaused)
