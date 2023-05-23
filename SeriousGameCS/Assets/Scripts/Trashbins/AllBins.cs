@@ -9,6 +9,7 @@ public class AllBins : MonoBehaviour
     public GameObject glassBin;
     public GameObject trashBin;
     public GameObject dechetterieBin;
+    public GameObject electronicBin;
     static AllBins allBins;
 
     private void Awake()
@@ -27,6 +28,7 @@ public class AllBins : MonoBehaviour
         allBins.greenBin.SetActive(false);
         allBins.glassBin.SetActive(false);
         allBins.dechetterieBin.SetActive(false);
+        allBins.electronicBin.SetActive(false);
     }
    
     //Lorsque l'item est n'est mis dans aucune poubelle -> donc dans la poubelle grise
@@ -57,8 +59,11 @@ public class AllBins : MonoBehaviour
             case Bin.BinType.Green:
                 compareItemToBin(item, Item.ItemType.Green);
                 break;
+            case Bin.BinType.Electronic:
+                compareItemToBin(item, Item.ItemType.Electronic); 
+                break;
             case Bin.BinType.Dechetterie:
-                compareItemToBin(item, new List<Item.ItemType> { Item.ItemType.Green, Item.ItemType.Electronic});
+                compareItemToBin(item, new List<Item.ItemType> { Item.ItemType.Green, Item.ItemType.Electronic, Item.ItemType.Nonrecyclable});
                 break;
             case Bin.BinType.Trash:
                 letInGarbage(item);
@@ -68,7 +73,10 @@ public class AllBins : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Active la poubelle de nom binName.
+    /// </summary>
+    /// <param name="binName"></param>
     public static void ActivateBin(string binName)
     {
 
@@ -83,7 +91,34 @@ public class AllBins : MonoBehaviour
             case "dechetterie":
                 allBins.dechetterieBin.SetActive(true);
                 break;
+            case "electronic":
+                allBins.electronicBin.SetActive(true);
+                break;
             default:
+                break;
+        }
+    }
+    /// <summary>
+    /// S'occupe d'activer les poubelles en fonction du niveau. Doit être appelé à chaque niveau.
+    /// </summary>
+    /// <param name="level"></param>
+    public static void ManageBinSpawnOnLevel(int level)
+    {
+        switch (level)
+        {
+            default:
+                break;
+            case 2:
+                ActivateBin("glass");
+                break;
+            case 4:
+                ActivateBin("green");
+                break;
+            case 5:
+                ActivateBin("electronic");
+                break;
+            case 6:
+                ActivateBin("dechetterie");
                 break;
         }
     }

@@ -8,14 +8,17 @@ public class Tip : MonoBehaviour
 {
     private static GameObject prefab; // Référence au prefab
     private static Canvas canvas;
-    //private Coroutine tipCoroutine;
-    //public GameObject content;
 
-    private void Start()
+    private void Awake()
     {
-        prefab = Resources.Load<GameObject>("Prefabs/newLevelTip");
-        canvas = GameObject.FindObjectOfType<Canvas>();
+        if (prefab == null)
+        {
+            prefab = Resources.Load<GameObject>("Prefabs/newLevelTip");
+            canvas = GameObject.FindObjectOfType<Canvas>();
+        }
     }
+
+  
 
     //Création d'un nouveau Tip
     private static TipPrefab CreateTip(string title, Sprite sprite, string description)
@@ -57,10 +60,10 @@ public class Tip : MonoBehaviour
                 //description = "Peelings cannot be recycled";
                 //tip = CreateTip("Tip4", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/Jauneetmarron");
+                texture = Resources.Load<Texture2D>("Tips/yellowAndTrashTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                description = "";
-                tip = CreateTip("Tip1", sprite, description);
+                description = "Plastic waste must be recycled in the yellow bin. Junk go in the trash can, or in a composter if they are organic";
+                tip = CreateTip("Plastic / Junk", sprite, description);
 
 
                 break;
@@ -86,10 +89,11 @@ public class Tip : MonoBehaviour
                 //description = "Cardboard boxes go to the Yellow Bin";
                 //tip = CreateTip("Tip8", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/GreenBin");
+                texture = Resources.Load<Texture2D>("Tips/GlassTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                description = "";
-                tip = CreateTip("Tip2", sprite, description);
+                description = "Glass bottles are recyclable and should be thrown in special containers (they are often dark-green-coloured closed containers outside.) " +
+                    "Be careful, glass tableware should not be mixed ! The material is different and could corrupt the whole bin. It must be thrown in the trash can.";
+                tip = CreateTip("Glass", sprite, description);
 
                 break;
 
@@ -106,9 +110,10 @@ public class Tip : MonoBehaviour
                 //description = "Plastic spoons must be thrown to the Yellow Bin";
                 //tip = CreateTip("Tip10", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
+                texture = Resources.Load<Texture2D>("Tips/cardboardAndMetalTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                tip = CreateTip("Tip3", sprite, "Tip3");
+                description = "Cardboard and metal can be placed in the yellowbin. They are highly recyclable !";
+                tip = CreateTip("Cardboard and Metal", sprite, description);
                 break;
 
             case 4:
@@ -152,15 +157,15 @@ public class Tip : MonoBehaviour
                 //description = "Figure it out yourself about this one";
                 //tip = CreateTip("Tip18", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/Exceptions");
+                texture = Resources.Load<Texture2D>("Tips/GreenTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                description = "";
-                tip = CreateTip("Tip3", sprite, description);
+                description = "Depending on your region, green waste can be collected by your municipality and must be placed in special bins. If not, you can carry it to your local waste center, or compost it ! ";
+                tip = CreateTip("Green waste", sprite, description);
 
-                break;
+                break; 
 
 
-            case 6:
+            case 5:
                 //texture = Resources.Load<Texture2D>("Sprites/batteries");
                 //sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
                 //description = "Pay attention to recycling batteries";
@@ -176,22 +181,35 @@ public class Tip : MonoBehaviour
                 //description = "If it is broken you cannot recyle your phone";
                 //tip = CreateTip("Tip21", sprite, description);
 
-                texture = Resources.Load<Texture2D>("Sprites/E-déchets");
+                texture = Resources.Load<Texture2D>("Tips/ewasteTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                description = "";
-                tip = CreateTip("Tip4", sprite, description);
+                description = "E-waste are all the electronic devices and components. They use rare materials and should ALWAYS be recycled ! " +
+                    "Throw them in special bins often available in supermarkets or in your waste center.";
+                tip = CreateTip("E-waste", sprite, description);
                 break;
-            
-            default:
-                texture = Resources.Load<Texture2D>("Sprites/plasticBottle");
+
+            case 6:
+                texture = Resources.Load<Texture2D>("Tips/exceptionsTip");
                 sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
-                description = "You can eat it, not recycle it understood ?";
-                tip = CreateTip("TipD", sprite, description);
+                description = "There are some stuff that just cannot be recycled :'(. Wax packaging and packing peanuts are amongst those, you can throw them in the trash can.";
+                tip = CreateTip("Exeptions", sprite, description);
+                break;
+
+            case 7:
+                texture = Resources.Load<Texture2D>("Tips/solventTip");
+                sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 25.0f);
+                description = "Even though solvent and other chemicals bottles may be in plastic, they can contain dangerous liquids for the waste sorting workers." +
+                    "They can be handled by your waste center";
+                tip = CreateTip("Solvent and chemicals", sprite, description);
+                break;
+
+            default:
+                tip = null;
                 break;
         }
-        main.PauseGame();
+
         //Debug.Log(tip.titleText.text);
-        addToTipHistory(tip, content);
+        if (tip != null) { main.PauseGame(); addToTipHistory(tip, content); }
 
         // Arrête la coroutine précédente s'il y en a une
         //if (tipCoroutine != null)
@@ -209,6 +227,18 @@ public class Tip : MonoBehaviour
 
         // Effectuer les modifications nécessaires sur la nouvelle instance
         newTipPrefab.removeCloseButton();
+    }
+
+    /// <summary>
+    /// Clear l'historique des Tips, à appeler à chaque reset du jeu
+    /// </summary>
+    /// <param name="content"></param>
+    public static void clearTipHistory(GameObject content)
+    {
+        foreach (Transform child in content.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
     //private static IEnumerator DisplayTips(TipPrefab tipPrefab, GameObject content)
     //{

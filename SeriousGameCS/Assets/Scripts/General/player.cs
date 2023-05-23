@@ -129,21 +129,8 @@ public class player : MonoBehaviour
     public void newLevel()
     {
         Tip.newLevelTip(level, tipContent);
-        ConveyorBelt.deltaTime -= 0.2f;
-        switch (level)
-        {
-            default:
-                break;
-            case 2:
-                AllBins.ActivateBin("glass");
-                break;
-            case 4:
-                AllBins.ActivateBin("green");
-                break;
-            case 6:
-                AllBins.ActivateBin("dechetterie");
-                break;
-        }
+        ConveyorBelt.deltaTime -= 0.1f;
+        AllBins.ManageBinSpawnOnLevel(level);
     }
     //Reset les coeurs graphiques
     public static void resetLivesUI()
@@ -156,6 +143,8 @@ public class player : MonoBehaviour
     public static void resetPlayer()
     {
         level = 1;
+        Tip.clearTipHistory(_player.tipContent);
+        Tip.newLevelTip(level, _player.tipContent);
         score = initialScore;
         remainingLives = 3;
     }

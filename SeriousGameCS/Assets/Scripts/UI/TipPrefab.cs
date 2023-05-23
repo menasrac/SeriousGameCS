@@ -20,8 +20,8 @@ public class TipPrefab : MonoBehaviour
 
         // Description parameters
         descriptionText.font = Resources.Load<TMP_FontAsset>("Fonts/Arial SDF"); // Font
-        descriptionText.color = Color.black; // Color
-        descriptionText.fontSize = 24; // Size
+        //descriptionText.color = Color.white; // Color
+        descriptionText.fontSize = 16; // Size
     }
 
     private void Update()

@@ -12,9 +12,9 @@ public class Bin
         Plastic,
         Glass,
         Green,
-        Batteries,
         Dechetterie,
-        Trash
+        Trash,
+        Electronic
     }
     public Bin(Sprite sprite, BinType type)
     {

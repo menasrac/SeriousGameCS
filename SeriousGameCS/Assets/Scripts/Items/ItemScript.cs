@@ -82,31 +82,29 @@ public class Item
 public class Items
 {
     public Item plastic_bottle = new Item("plastic_bottle", 10f, Item.ItemType.Plastic).setLevel(1);
-    public Item apple = new Item("apple", 10f, Item.ItemType.Trash).setLevel(1);
     public Item yogurt = new Item("yogurt", 10f, Item.ItemType.Plastic).setLevel(1);
     public Item glass_bottle = new Item("glass_bottle", 10f, Item.ItemType.Glass).setLevel(2);
     public Item peelings = new Item("peelings", 10f, Item.ItemType.Trash).setLevel(1);
-    public Item cardboardbox = new Item("cardboardbox", 10f, Item.ItemType.Cardboard).setLevel(3);
     public Item cardboard = new Item("cardboard", 10f, Item.ItemType.Cardboard).setLevel(3);
     public Item coffee_capsule = new Item("coffee_capsule", 10f, Item.ItemType.Metal).setLevel(4);
     public Item napkin = new Item("napkin", 10f, Item.ItemType.Cardboard).setLevel(2);
-    public Item babybel = new Item("babybel", 20f, Item.ItemType.Trash).setLevel(4);
+    public Item babybel = new Item("babybel", 20f, Item.ItemType.Trash).setLevel(6);
     public Item bag_of_chips = new Item("bag_of_chips", 10f, Item.ItemType.Plastic).setLevel(3);
     public Item batteries = new Item("batteries", 30f, Item.ItemType.Electronic).setLevel(6);
-    public Item plastic_spoon = new Item("plastic_spoon", 20f, Item.ItemType.Trash).setLevel(3);
+    public Item plastic_spoon = new Item("plastic_spoon", 20f, Item.ItemType.Trash).setLevel(6);
     public Item toothpaste = new Item("toothpaste", 10f, Item.ItemType.Plastic).setLevel(3);
-    public Item ketchup_bottle = new Item("ketchup_bottle", 10f, Item.ItemType.Plastic).setLevel(1);
     public Item plastic_bag = new Item("plastic_bag", 10f, Item.ItemType.Plastic).setLevel(4);
     public Item can = new Item("can", 15f, Item.ItemType.Metal).setLevel(3);
-    public Item canned = new Item("canned", 15f, Item.ItemType.Metal).setLevel(3);
-    public Item broken_phone = new Item("broken_phone", 25f, Item.ItemType.Electronic).setLevel(6);
+    public Item broken_phone = new Item("broken_phone", 25f, Item.ItemType.Electronic).setLevel(5);
     public Item plants = new Item("plants", 10f, Item.ItemType.Green).setLevel(4);
-    public Item microwave = new Item("microwave", 40, Item.ItemType.Electronic).setLevel(6);
-    public Item bottle_of_pills = new Item("bottle_of_pills", 10f, Item.ItemType.Nonrecyclable).setLevel(7);
+    public Item microwave = new Item("microwave", 40, Item.ItemType.Electronic).setLevel(5);
+    public Item bottle_of_pills = new Item("bottle_of_pills", 10f, Item.ItemType.Nonrecyclable).setLevel(10);
     public Item mouse = new Item("mouse", 20f, Item.ItemType.Electronic).setLevel(6);
-    public Item toy = new Item("toy", 15f, Item.ItemType.Nonrecyclable).setLevel(4);
-    public Item wood = new Item("wood", 25f, Item.ItemType.Nonrecyclable).setLevel(8);
-
+    public Item toy = new Item("toy", 15f, Item.ItemType.Nonrecyclable).setLevel(6);
+    public Item wood = new Item("wood", 25f, Item.ItemType.Nonrecyclable).setLevel(10);
+    public Item broken_glass = new Item("broken_glass", 30f, Item.ItemType.Trash).setLevel(2);
+    public Item solvent = new Item("solvent", 35f, Item.ItemType.Nonrecyclable).setLevel(7);
+    public Item candle = new Item("candle", 20f, Item.ItemType.Trash).setLevel(6);
 
 
 
@@ -122,9 +120,9 @@ public class Items
     //On veut une liste avec tous les items
     public List<Item> GetItems()
     {
-        List<Item> allItems = new List<Item> {plastic_bottle, apple, yogurt, glass_bottle, peelings, cardboardbox,
-            cardboard, coffee_capsule, napkin, babybel, bag_of_chips, batteries, plastic_spoon, toothpaste,
-            ketchup_bottle, plastic_bag,can, canned, broken_phone, plants, bottle_of_pills, mouse, toy, wood };
+        List<Item> allItems = new List<Item> {plastic_bottle, yogurt, glass_bottle, peelings,
+            cardboard, coffee_capsule, napkin, babybel, bag_of_chips, batteries, plastic_spoon, toothpaste, plastic_bag,can, broken_phone, plants, bottle_of_pills, 
+            mouse, toy, wood, broken_glass, solvent, candle };
 
         return allItems;
 
